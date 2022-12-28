@@ -4,7 +4,8 @@ Stay updated on the daily price of gold and silver.
 
 # Built with
 
--   [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) - A library that makes it easy to scrape information from web pages.
+-   [Requests](https://pypi.org/project/requests/) - The requests module allows you to send HTTP requests using Python.
+-   [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) - A Python library that makes it easy to scrape information from web pages.
 -   [Python File Handiling](https://www.programiz.com/python-programming/file-operation) - Python has several built-in modules and functions for handling files.
 
 # Features
