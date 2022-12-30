@@ -38,3 +38,20 @@ def add_data(prices: dict) -> None:
         with open(FILE_NAME, "w") as file:
             file.write(f"{gold_price},{silver_price},{todays_day}")
             file.write("\n")
+
+
+def display_data() -> None:
+    print(f"\n {'='*10} This week's prices: {'='*10}\n")
+
+    # Open the file in reading mode
+    with open(FILE_NAME, "r") as file:
+        # Read each lines
+        file_content = file.readlines()
+
+        # Iterate over each line and display the data
+        for prices in file_content:
+            gold_price, silver_price, day = prices.split(",")
+
+            print(day.strip())
+            print(f"Gold price   : {gold_price}")
+            print(f"Silver price : {silver_price}\n")

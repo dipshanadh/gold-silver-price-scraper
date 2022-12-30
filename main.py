@@ -1,8 +1,8 @@
 # Import scraper function
 from scraper import scraper
 
-# Import necessary functions from file_handling
-from file_handling import add_data
+# Import necessary functions fir file handling
+from file_handling import add_data, display_data
 
 # Import URL
 from constants import URL
@@ -17,3 +17,6 @@ print(f"Silver price : {prices[1]}\n")
 
 # Add data to file
 add_data(prices)
+
+# Displaying data
+display_data()
