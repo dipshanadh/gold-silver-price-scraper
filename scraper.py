@@ -24,8 +24,8 @@ def scraper(URL: str) -> tuple:
     prices = list.select("li:nth-child(even)")
 
     # Get the gold price & silver price
-    silver_price = convert_currency(prices[1].text)
-    gold_price = convert_currency(prices[2].text)
+    gold_price = convert_currency(prices[1].text)
+    silver_price = convert_currency(prices[2].text)
 
     # Return in dictionary form
     return (gold_price, silver_price)

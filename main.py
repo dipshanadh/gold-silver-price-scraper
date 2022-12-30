@@ -1,7 +1,11 @@
-# Import scraper function
-from scraper import scraper
+# Import termcolor to print colorful text on terminal
+from termcolor import cprint
+
+# Import the datetime module for working with dates
+from datetime import datetime
 
 # Import necessary functions
+from scraper import scraper
 from file_handling import add_data, get_data
 from statistics_ import get_average
 
@@ -12,9 +16,9 @@ from constants import URL
 prices = scraper(URL)
 
 # Displaying the results
-print(f"\n{'='*10} Today's price: {'='*10}\n")
-print(f"Gold price   : {prices[0]}")
-print(f"Silver price : {prices[1]}\n")
+cprint(f"\n{'='*10} Today's price: {'='*10}\n", "green")
+cprint(f"Gold price   : {prices[0]}", "yellow")
+cprint(f"Silver price : {prices[1]}\n", "blue")
 
 # Add data to file
 add_data(prices)
@@ -22,19 +26,23 @@ add_data(prices)
 # Get new prices fromt get_data function
 new_prices = get_data()
 
-print(f"\n{'='*10} This week's prices: {'='*10}\n")
+cprint(f"\n{'='*10} This week's prices: {'='*10}\n", "green")
 
 # Iterate over each line and display the data
+todays_day = datetime.now().strftime("%A")
+
 for price in new_prices:
     gold_price, silver_price, day = price.split(",")
 
-    print(day.strip())
-    print(f"Gold price   : {gold_price}")
-    print(f"Silver price : {silver_price}\n")
+    day = day.strip()
+
+    print(f"{day} (today)" if day == todays_day else day)
+    cprint(f"Gold price   : {gold_price}", "yellow")
+    cprint(f"Silver price : {silver_price}\n", "blue")
 
 # Display average
 average_gold_price, average_silver_price = get_average()
 
-print(f"\n{'='*10} Average prices: {'='*10}\n")
-print(f"Average Gold price   : {average_gold_price}")
-print(f"Average Silver price : {average_silver_price}\n")
+cprint(f"\n{'='*10} Average prices: {'='*10}\n", "green")
+cprint(f"Average Gold price   : {average_gold_price:.2f}", "yellow")
+cprint(f"Average Silver price : {average_silver_price:.2f}\n", "blue")
