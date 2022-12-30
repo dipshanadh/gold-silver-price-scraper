@@ -1,12 +1,19 @@
 # Import scraper function
 from scraper import scraper
 
-# Our URL
-URL = "https://www.hamropatro.com/gold"
+# Import necessary functions from file_handling
+from file_handling import add_data
 
-# Destructure the gold price and silver price form the returned tuple
-(gold_price, silver_price) = scraper(URL)
+# Import URL
+from constants import URL
+
+# Pass the URL to the scraper function and store the returned prices
+prices = scraper(URL)
 
 # Displaying the results
-print(f"Gold price: {gold_price}")
-print(f"Silver price: {silver_price}")
+print(f"\n{'='*10} Today's price: {'='*10}\n")
+print(f"Gold price   : {prices[0]}")
+print(f"Silver price : {prices[1]}\n")
+
+# Add data to file
+add_data(prices)
