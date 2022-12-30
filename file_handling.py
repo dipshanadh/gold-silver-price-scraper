@@ -47,17 +47,3 @@ def get_data() -> list:
         file_content = file.readlines()
 
         return file_content
-
-
-def display_data() -> None:
-    print(f"\n{'='*10} This week's prices: {'='*10}\n")
-
-    # Get prices from the get_data funtion
-    prices = get_data()
-
-    # Iterate over each line and display the data
-    for price in prices:
-        gold_price, silver_price, day = price.split(",")
-        print(day.strip())
-        print(f"Gold price   : {gold_price}")
-        print(f"Silver price : {silver_price}\n")
