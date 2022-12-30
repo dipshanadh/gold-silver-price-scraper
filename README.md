@@ -29,7 +29,7 @@ $ cd gold-silver-price-scraper
 $ pip install -r requirements.txt
 
 # Now run the python script
-$ python main.py
+$ python src/main.py
 ```
 
 ## Author
